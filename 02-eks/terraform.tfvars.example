@@ -1,0 +1,2 @@
+aws_region        = "<AWS_REGION>"
+api_allowed_cidrs = ["<YOUR_PUBLIC_IP>/32"]
