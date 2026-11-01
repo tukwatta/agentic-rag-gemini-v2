@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: agentic-rag
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/<YOUR_GITHUB_USER>/<YOUR_REPO>.git
+    targetRevision: main
+    path: agentic-rag-gemini-v1/k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: agentic-rag
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
